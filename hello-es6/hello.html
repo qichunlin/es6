@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    for (var i = 0; i < 5; i++) {
+        console.log(i)
+    }
+    //外部也能使用这个变量
+    console.log("我在循环外:" + i);
+
+    //修改为let 去声明局部变量,const去声明一个常量
+    for (let j = 10; j < 15; j++) {
+        console.log(j)
+    }
+    //外部也能使用这个变量
+    console.log("我在循环外:" + j);
+
+
+
+
+    //解构表达式
+    //解构数组
+    const arr = [10,20,30];
+    //获取数组中的某个元素
+    const [a,b,c] = arr;
+    //结果a= 10; b=20; c=30;
+
+    //解构对象
+    let person = {name:"zhangsan",age:"14"}
+    const {name,age} = person;
+
+    const{name:aaa,age:bbb} = person;//第二种
+
+    //name=zhangsan   age=14
+
+    
+    //函数优化
+    function f(a,b) {
+        //如果b的值为空
+        if (!b) {
+            b = 1;
+        }
+        //等效上面的结果   b = b || 1
+        console.log(a/b);
+    }
+    f(10);
+
+
+    //箭头函数
+    //let fun2 = ()=> {}
+    let fun2 = q => console.log(q);
+    fun2(100);
+
+    let fun3 = (q,m) => {
+        const z = q + m;
+        console.log(z);
+    }
+    fun3(10,30);
+
+
+
+    const person2 = {
+        name : "zhangsan",
+        //以前的版本
+        eat1: function (food) {
+            console.log(this.name + "吃了" + food)
+        },
+        //箭头函数版
+        //这里的this域不一样了,实在person2 外面的了
+        eat2: food => console.log(person2.name + "吃了" + food),
+        //简写版
+        eat3(food){
+            console.log(this.name + "吃了" + food);
+        }
+    }
+    person2.eat1("鸡蛋");
+    person2.eat2("鸡腿");
+    person2.eat3("鸡鸡翅");
+
+
+
+    const p = {
+        name :"lisi",
+        age:30
+    }
+    //const fun3 = ({name}) => console.log(pp.name)
+    const fun3 = pp => console.log(pp.name)
+    fun3(p);
+
+
+
+    //map
+    let test = [30,50,100];
+    const brr = test.map(a => a*10);
+    console.log(brr);
+
+    //reduce
+    const arr2 = [10,20,30,40,50];
+    arr2.reduce((a,b) => a + b); //150
+    arr2.reduce((a,b) => a + b,1000); //1150
+
+
+
+    //对象扩展
+    let person11 = {name:"123",sex:1,username:"wq",age:12};
+    Object.keys(person11);//["name","sex","username","age"]
+    Object.values(person11);//["123",1,"wq",12]
+    Object.entries(person11);//[ ["name","jack"],["sex",1],["username","wq"],["age",12]  ]
+
+
+    let pp = {xxx:"yyyy"}
+    Object.assign(pp,person11);//{xxx:"yyyy",name:"123",age:21,sex:1,username:"wq"}
+
+
+    //数组扩展
+    let arr4 = [10,20,30,40,50];
+    arr4.find(a =>a==30); //30
+
+    let person4 = [{name:"zhangsan",age:34},{name:"lisi",age:23},{name:"wangwu",age:12}]
+    person4.find(p => p.age == 34);//  {name:"zhangsan",age:34}
+    person4.findIndex(p => p.age == 12);//  2
+    arr4.includes(40);//  true  只能使用基本的数据类型
+</script>
+</html>

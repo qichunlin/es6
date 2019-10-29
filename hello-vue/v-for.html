@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="user in users">
+            {{user.name}} - {{user.gender}} - {{user.age}}
+        </li>
+    </ul>
+    <hr>
+    <h3>多个参数的时候需要加括号,并且 index的下标从0开始</h3>
+    <ul>
+        <li v-for="(user,index) in users">
+            {{index+1}}:{{user.name}} - {{user.gender}} - {{user.age}}
+        </li>
+    </ul>
+    <h3>遍历对象 key:value的形式</h3>
+    <ul>
+        <li v-for="(key,val,index) in user">
+            {{index+1}}:{{val}} : {{key}}
+        </li>
+    </ul>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            //需要遍历的数据
+            users:[
+                {name:'柳岩', gender:'女', age: 21},
+                {name:'lengend', gender:'男', age: 18},
+                {name:'范冰冰', gender:'女', age: 24},
+                {name:'刘亦菲', gender:'女', age: 18},
+                {name:'古力娜扎', gender:'女', age: 25}
+            ],
+            user: {name:'柳岩', gender:'女', age: 21}
+        },
+    })
+</script>
+</body>
+</html>

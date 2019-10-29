@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--vue对象的html模板-->
+    <div id="app">
+        <!--双向绑定  v-model:数据模型-->
+        <input type="text" v-model="num">
+        <!--v-on:事件名=js表达式-->
+        <input type="button" value="点我" v-on:click="num++">
+        <!--click可以是方法名-->
+        <input type="button" value="点我2" v-on:click="incr">
+        <!--花括号:js表达式-->
+        <h1>大家好,我是{{name}},有几位妹子{{num}}暗恋我 </h1>
+
+    </div>
+</body>
+<!--这里一定要全写不然会取不出来-->
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    /*初始化一个vue实例*/
+    const app = new Vue({
+        //代表一个模板  element 选择
+        el:"#app",
+        /*定义数据模型*/
+        data:{
+            name:"刘德华",
+            num:100
+        },
+
+        //定义方法
+        methods:{
+            incr() {
+                this.num--;
+            }
+
+        }
+    })
+</script>
+</html>

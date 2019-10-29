@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--事件中直接写js片段-->
+    <button v-on:click="num++">增加一个</button><br/>
+    <!--事件指定一个回调函数，必须是Vue实例中定义的函数-->
+    <button v-on:click="decrement">减少一个</button><br/>
+    <input type="button" value="点我没有右键事件(默认操作dom元素)" v-on:click="num++" @contextMenu="decr($event)" />点击增加,右键减少一个 <br/>
+
+    <input type="button" value="点我没有右键事件(vue提供)" v-on:click="num++" @contextMenu.prevent="decrement" />点击增加,右键减少一个 <br/>
+    <h1>有{{num}}个女神迷恋legend</h1>
+
+    <input type="text" value="回车提交" v-model="num" @keyup.13="submit" /> <br/>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el:"#app",
+        data:{
+            num:100
+        },
+        methods:{
+            decrement(){
+                this.num--;
+            },
+
+            decr(ev){
+                //阻止鼠标右键默认事件
+                ev.preventDefault();
+                this.num--;
+            },
+            submit() {
+                console.log("你已经提交了.......")
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿1.let声明一个变量,不会越界
+  const:声明一个常量
+
+2.字符串
+    includes
+    startWith
+    endsWith
+    const ss = `可拼接字符串`
+
+3.解构表达式
+    数组:let [x,y,z]=arr
+    对象:let {name:a,age:b}=person
+
+4.函数
+    赋默认值:方法参数列表赋默认值   (a,b=1) =>{}
+    箭头函数:()=>{}
+    简写  eat(){}
+
+
+    箭头函数结合结构表达式:({name}) =>{}
+
+5.map和reduce
+    map(fun):处理一个数组,遍历数组中的每一个元素用fun处理,把处理的结果放入新的数组
+    reduce(fun(a,b),[,100]):没有初始值 (1.a=10 b=20 2.a=30,b=30)  有初始值(1.a=100 b=10  2.a=110,b=20)
+
+
+
+
+
+
+vue
+html模板
+	{{}}：插值表达式，声明式渲染，单向，会出现插值闪烁  v-text：把所有的内容当做文本渲染  v-html：识别js html css渲染
+	v-model:双向渲染，在表单元素中使用。
+	v-on:事件名：v-on:click="js表达式或者函数名"  @click @contextMenu   .prevent:禁用默认事件 .enter(13):回车键盘事件
+	钩子函数：初始化（new Vue()） 模板加载 视图渲染 更新 销毁 。 created：加载数据模型
+	v-for: 遍历集合或者对象 
+		v-for="(item,index) in items"
+		v-for="(val, key, index) in user"
+
+
+vue实例
+	el: "#app" // vue实例的作用范围
+	data: {数据模型}
+	methods: {定义方法}
+	created(){加载数据}
+
