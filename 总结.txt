@@ -23,8 +23,16 @@
     map(fun):处理一个数组,遍历数组中的每一个元素用fun处理,把处理的结果放入新的数组
     reduce(fun(a,b),[,100]):没有初始值 (1.a=10 b=20 2.a=30,b=30)  有初始值(1.a=100 b=10  2.a=110,b=20)
 
+6.对象的扩展
+    keys
+    values
+    entries:二维数组
+    assign(dest,...src)
 
-
+7.数组的扩展
+    find
+    findIndex
+    includes
 
 
 
